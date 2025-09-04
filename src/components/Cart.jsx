@@ -42,21 +42,10 @@ const Cart = () => {
     let message = "🛒 *New Order*%0A%0A";
 
     cartItems.forEach((item, index) => {
-      // If the image path is local (from /assets/), convert it to a full URL
-      // Build image URL that works in dev + production (hosted)
-      const imageUrl = item.img?.startsWith("http")
-        ? item.img
-        : `/${item.img}`;
-
-
       message += `*${index + 1}. ${item.title || item.name}*%0A`;
       message += `💵 Price: $${item.price}%0A`;
       message += `🔢 Qty: ${item.cartQuantity}%0A`;
-      if (item.img) {
-        message += `🖼️ Image: ${imageUrl}%0A`;
-      }
       message += "%0A";
-
     });
 
     message += `--------------------%0A`;
